@@ -39,8 +39,7 @@ class ViewController: UIViewController {
         let tip = bill * ((tipPercentages[tipControl.selectedSegmentIndex] as? Double)! / 100)
         let total = bill + tip
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        setTitles(tip: tip, total: total)
         
         //store bill amount and current timestamp
         let timeOfLastBill = NSDate().timeIntervalSince1970
@@ -68,16 +67,30 @@ class ViewController: UIViewController {
             let lastBillTime = lastBill[1] as? Double
             let lastBillAmount = lastBill[0] as? Int
             let curTime = NSDate().timeIntervalSince1970
-            if((curTime - lastBillTime!) < 600 && lastBillAmount! > Int(0)){
+            if((curTime - lastBillTime!) < 60 && lastBillAmount! > Int(0)){
                 billField.text = String(describing: lastBillAmount!)
             }
         }
-   
+        
+        setTitles(tip: 0.00, total: 0.00)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         calculateTip(self)//recalculate tip in case percentage has changed
+    }
+    
+    //use locale-specific currency and currency thousands separators
+    func setTitles(tip: Double, total: Double){
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        let formattedTipAmount = formatter.string(from: tip as NSNumber)
+        let formattedTotalAmount = formatter.string(from: total as NSNumber)
+        tipLabel.text = formattedTipAmount
+        totalLabel.text = formattedTotalAmount
+        
+        return
     }
     
     
