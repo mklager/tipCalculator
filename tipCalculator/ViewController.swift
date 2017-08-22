@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var dividerView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +41,19 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        //store bill amount and current timestamp
+        let timeOfLastBill = NSDate().timeIntervalSince1970
+        defaults.set([bill, timeOfLastBill], forKey: "lastBill")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        dividerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+        self.dividerView.alpha = 1
+        })
         
         let defaults = UserDefaults.standard
         let defaultPerc = defaults.array(forKey: "percentDefaultValues")!
@@ -50,10 +61,24 @@ class ViewController: UIViewController {
         tipControl.setTitle(String(describing: defaultPerc[0]) + "%", forSegmentAt: 0)
         tipControl.setTitle(String(describing: defaultPerc[1]) + "%", forSegmentAt: 1)
         tipControl.setTitle(String(describing: defaultPerc[2]) + "%", forSegmentAt: 2)
+        
+        //show last bill if <10 min
+        if(defaults.array(forKey: "lastBill") != nil ){
+            let lastBill = defaults.array(forKey: "lastBill")!
+            let lastBillTime = lastBill[1] as? Double
+            let lastBillAmount = lastBill[0] as? Int
+            let curTime = NSDate().timeIntervalSince1970
+            if((curTime - lastBillTime!) < 600 && lastBillAmount! > Int(0)){
+                billField.text = String(describing: lastBillAmount!)
+            }
+        }
+   
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        calculateTip(self)
+        calculateTip(self)//recalculate tip in case percentage has changed
     }
+    
+    
 }

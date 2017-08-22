@@ -95,6 +95,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="8BC-Hd-jop" id="QxH-r1-KUB"/>
+                        <outlet property="dividerView" destination="i7E-oL-nz4" id="8Zz-33-mxh"/>
                         <outlet property="tipControl" destination="BL7-TY-lHs" id="n5M-eV-Zyx"/>
                         <outlet property="tipLabel" destination="moG-dW-UUm" id="W3t-qN-NHq"/>
                         <outlet property="totalLabel" destination="Ga5-7B-PfC" id="xOu-V8-VwC"/>
@@ -169,7 +170,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4V-aR-FRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="z42-Sg-BWF"/>
                 <tapGestureRecognizer id="GSe-dQ-nhp">
                     <connections>
                         <action selector="onTap:" destination="tLY-O8-Qee" id="g5u-XQ-GS3"/>
