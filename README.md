@@ -22,6 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [*] Option to change to a dark mode background
+- [*] Remembering percentage across app restarts
 
 ## Video Walkthrough 
 

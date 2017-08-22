@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,8 +73,6 @@ class ViewController: UIViewController {
         
         setTitles(tip: 0.00, total: 0.00)
         
-        //set bill amount as first responder
-        self.billField.becomeFirstResponder()
         
         //set background
         if(defaults.bool(forKey: "theme")){
@@ -84,10 +81,17 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor.white
         }
         
+        //remove borders from bill amount field
+        self.billField.borderStyle = .none
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //set bill amount as first responder
+        self.billField.becomeFirstResponder()
+        
         calculateTip(self)//recalculate tip in case percentage has changed
     }
     
