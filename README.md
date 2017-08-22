@@ -22,13 +22,13 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [*] Option to change to a dark mode background
-- [*] Remembering percentage across app restarts
+- [*] Remembering percentages across app restarts
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.giphy.com/media/l3fzVyJLdsYPc2gec/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/3owvKdNoiOa1BexWUg/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
