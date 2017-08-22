@@ -73,6 +73,9 @@ class ViewController: UIViewController {
         }
         
         setTitles(tip: 0.00, total: 0.00)
+        
+        //set bill amount as first responder
+        self.billField.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
