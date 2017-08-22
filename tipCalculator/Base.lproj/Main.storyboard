@@ -155,6 +155,20 @@
                                     <action selector="setRightField:" destination="tLY-O8-Qee" eventType="editingChanged" id="txw-lQ-ae6"/>
                                 </connections>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="HI4-9v-ItG">
+                                <rect key="frame" x="224" y="219" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeTheme:" destination="tLY-O8-Qee" eventType="valueChanged" id="CBw-Ye-9D9"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wnl-mz-csf">
+                                <rect key="frame" x="49" y="224" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -164,6 +178,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Np0-T3-mxi"/>
                     <connections>
+                        <outlet property="darkThemeSwitch" destination="HI4-9v-ItG" id="4wf-cg-MoN"/>
                         <outlet property="leftPercField" destination="gdj-O2-9H6" id="MEz-0W-Wee"/>
                         <outlet property="midPercField" destination="r3D-z6-lOB" id="OG9-NE-PpD"/>
                         <outlet property="rightPercField" destination="hJo-KP-rKo" id="ix3-2H-CMM"/>

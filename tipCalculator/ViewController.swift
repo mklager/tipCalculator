@@ -76,6 +76,14 @@ class ViewController: UIViewController {
         
         //set bill amount as first responder
         self.billField.becomeFirstResponder()
+        
+        //set background
+        if(defaults.bool(forKey: "theme")){
+            self.view.backgroundColor = UIColor.darkGray
+        }else{
+            self.view.backgroundColor = UIColor.white
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

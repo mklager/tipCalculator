@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var leftPercField: UITextField!
     @IBOutlet weak var midPercField: UITextField!
     @IBOutlet weak var rightPercField: UITextField!
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class SettingsViewController: UIViewController {
             midPercField.placeholder = String(describing: defaultPerc[1])
             rightPercField.placeholder = String(describing: defaultPerc[2])
         }
-      
+      darkThemeSwitch.isOn =  UserDefaults.standard.bool(forKey: "theme")
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,4 +64,15 @@ class SettingsViewController: UIViewController {
         defaults.set( defaultPerc, forKey: "percentDefaultValues")
         defaults.synchronize()
     }
+    
+    @IBAction func changeTheme(_ sender: UISwitch) {
+        let defaults = UserDefaults.standard
+        if darkThemeSwitch.isOn {
+            defaults.set(1, forKey: "theme")
+        }
+        else {
+            defaults.set(0, forKey: "theme")
+        }
+    }
+
 }
